@@ -1,0 +1,79 @@
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <style>
+            body {
+                font-family:"hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;
+                text-align:left;
+                -webkit-text-size-adjust: 100%;
+            }
+            table {
+                border-collapse: collapse;
+                border-left: 1px solid #ccc;
+                border-top: 1px solid #ccc; 
+                color: #333;
+            }
+            table td {
+                border-right: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                padding: 5px;
+                vertical-align: top;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 200px;
+                font-size: 80%;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="list"></div>
+        
+    <script>
+        $(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'https://spreadsheets.google.com/feeds/cells/1I0C5v5dUI0JqsNUSBfnA6gL9Y-iIbml-LM77YvUkIhU/ochwsuh/public/values?alt=json',
+                dataType: 'jsonp',
+                cache: false,
+                success: function(data) 
+                {
+                    renderForm(data.feed.entry);
+                },
+                error: function() { // 通信が失敗した時
+                    console.log('error');
+                }
+            });
+        });
+        function renderForm(data){
+            var target = $('#list');
+            var html = '<table><tr>';
+            var row = 1;
+            
+            for (i=0;i<data.length;i++){
+                if (data[i].gs$cell.row == row) {
+                    if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 7) {
+                        //2行目以降、レスポンスタイム列としてブランク列を追加
+                        html = html + '<td></td><td>'+data[i].gs$cell.$t+'</td>';
+                    } else {
+                        html = html + '<td>'+data[i].gs$cell.$t+'</td>'
+                    }
+                } else if (data[i].gs$cell.col == 2) {
+                    // 行頭で2列目なので県名列としてブランク列を追加する
+                    html = html + '</tr><tr><td></td><td>'+data[i].gs$cell.$t+'</td>';
+                    row = row +1;
+                } else {
+                    html = html + '</tr><tr><td>'+data[i].gs$cell.$t+'</td>';
+                    row = row +1;
+                }
+                console.log(data[i].gs$cell.row + ' , ' + data[i].gs$cell.col + ' : ' + data[i].gs$cell.$t);
+            }
+            $("#list")[0].innerHTML = html;
+        }
+    </script>
+    </body>
+ </html>
