@@ -56,12 +56,12 @@
             
             for (i=0;i<data.length;i++){
                 if (data[i].gs$cell.row == row) {
-                    if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 7) {
+                    //if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 7) {
                         //2行目以降、レスポンスタイム列としてブランク列を追加
-                        html = html + '<td></td><td>'+data[i].gs$cell.$t+'</td>';
-                    } else {
+                    //    html = html + '<td></td><td>'+data[i].gs$cell.$t+'</td>';
+                    //} else {
                         html = html + '<td>'+data[i].gs$cell.$t+'</td>'
-                    }
+                    //}
                 } else if (data[i].gs$cell.col == 2) {
                     // 行頭で2列目なので県名列としてブランク列を追加する
                     html = html + '</tr><tr><td></td><td>'+data[i].gs$cell.$t+'</td>';
