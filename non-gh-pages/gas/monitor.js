@@ -2,7 +2,7 @@
 // https://docs.google.com/spreadsheets/d/1G-vKrvXxNPrwUY_rJXl2zTIxVp67vdgeb2TezCBxGdU/edit?usp=sharing のシート用
 // これを変更した場合は、http://github.com/itdart/klgmonitor/blob/master/non-gh-pages/gas/monitoring.js を更新してください。
 
-var to = 'asai@thedott.io';
+var to = 'takoratta@gmail.com';
 var sub = 'ホームページ監視情報';
 var body = "サーバの状態が正常ではありません。\n　---- \n 市町村名 :@name \n 対象url :@url \n 現在のサーバー状況 :@status \n ----";
 
@@ -14,7 +14,7 @@ function myFunction()
   var urls = [];
   
   //シートデータ取得
-  ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("モニタリング");
+  ss = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("自動モニタリング");
   //データを取得する
   var data = ss.getRange("C2:C").getValues();
   
