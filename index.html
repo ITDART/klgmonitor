@@ -56,40 +56,42 @@
         <p>プロジェクトには、大きく以下2つのパートがあります。</p>
         <ul>
             <li>モニタリング</li>
+                <ul style="list-style-type: none;">
+                    <li>常時、自治体ホームページのモニタリングを行い、災害情報のバックアップを行います。</li>
+                    <li>現在のモニタリングの状況の一部を本ページで公開しています。</li>
+                </ul>
             <li>障害発生時の暫定サイト提供</li>
+                <ul style="list-style-type: none;">
+                    <li>障害発生時には、災害情報モードで暫定サイトを構築して、自治体に提供します。</li>
+                    <li><a href="http://itdart.jimdo.com/" target=_blank>暫定サイト（災害情報モード）のサンプル</a> <span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></li>
+                </ul>
         </ul>
-
-        <h3>モニタリング</h3>
-        <p>常時、自治体ホームページのモニタリングを行い、災害情報のバックアップを行います。</p>
-        <p>現在のモニタリングの状況の一部を本ページで公開しています。</p>
-
-        <h3>障害発生時の暫定サイト提供</h3>
-        <p>障害発生時には、災害情報モードで暫定サイトを構築して、自治体に提供します。</p>
-        <p>
-            <a href="http://itdart.jimdo.com/" target=_blank>暫定サイト（災害情報モード）のサンプル</a>
-        </p>
 
         <h2 id="status">モニタリング状況</h2>
         <p>モニタリングを行っている情報の一部を一般公開させていただきます。今後、状況に応じた災害関連情報を随時追加する予定です。</p>
-        <h3>公開しているモニタリング情報について</h3>
+        <h4>公開しているモニタリング情報について</h4>
         <p>現在、プロジェクトでは以下の情報を1時間に1度の頻度で取得しています。レスポンスタイムについては、取得方法がほかと異なるため、「確認日時」から最大1時間ほどずれが生じることがあります。</p>
 
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading">表示可否</div>
               <div class="panel-body">
                 該当の自治体のホームページにアクセスし、内容が表示されたかどうかを示しています。具体的には、HTTPステータスコードが200以外の時には表示できないと判断します。
               </div>
             </div>
+          </div>
 
+          <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading">レスポンスタイム</div>
               <div class="panel-body">
                 該当の自治体のホームページへの表示の時間を示します。具体的には、さくらインターネットのデータセンターから<code>curl -kL -w "%{time_total}"</code>で取得できる時間を表示しています。この数字はその大小に意味があるのではなく、あきらかに通常と異なるレスポンスタイムになった場合にホームページの異常を疑い、前もって対処するために利用しています。
               </div>
             </div>
+          </div>
 
+          <div class="col-md-4">
             <div class="panel panel-default">
               <div class="panel-heading">最終更新日時</div>
               <div class="panel-body">
@@ -97,19 +99,22 @@
               </div>
             </div>
           </div>
-          <div class="col-md-4"></div>
         </div>
 
-        <h3>公共機関やNPO等支援団体の皆さんへ</h3>
-        <p>
-            モニタリング＆暫定サイト提供を希望される方は<a href="https://docs.google.com/forms/d/1hIywPhg-Qa0GxqjN73DVob8lxYUrF1IGAbtEgveJgqQ/viewform" target=_blank>こちらのフォーム</a>からご連絡ください。
-        </p>
-
+        <h4>現在のモニタリング状況</h4>
 
         <div id="list"></div>
 
-        <p name="hpdef">※ホームページ（HP）という用語は本来技術的にはWebサイトもしくはWebページと呼ぶべきであるが、自治体サイトでも良く用いられており、自治体職員などにも理解しやすいということで、このプロジェクトでは自治体ホームページと呼ぶこととする。</p>
-        <p>このシステムはさくらインターネットよりサーバーを提供いただいております。</p>
+        <div class="panel panel-info">
+              <div class="panel-heading"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> 公共機関やNPO等支援団体の皆さんへ</div>
+              <div class="panel-body">
+                モニタリング＆暫定サイト提供を希望される方は<a href="https://docs.google.com/forms/d/1hIywPhg-Qa0GxqjN73DVob8lxYUrF1IGAbtEgveJgqQ/viewform" target=_blank>こちらのフォーム</a>からご連絡ください。
+              </div>
+        </div>
+
+        <p name="hpdef"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> ホームページ（HP）という用語は本来技術的にはWebサイトもしくはWebページと呼ぶべきであるが、自治体サイトでも良く用いられており、自治体職員などにも理解しやすいということで、このプロジェクトでは自治体ホームページと呼ぶこととしています。</p>
+        <p><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> このシステムはさくらインターネットよりサーバーを提供いただいております。</p>
+        <p>powered by <a href="http://itdart.org" target=_blank>IT DART</a></p>
     </div>
     <script>
         $(function () {
