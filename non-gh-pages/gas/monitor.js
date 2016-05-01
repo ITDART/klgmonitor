@@ -2,6 +2,7 @@
 // https://docs.google.com/spreadsheets/d/1G-vKrvXxNPrwUY_rJXl2zTIxVp67vdgeb2TezCBxGdU/edit?usp=sharing のシート用
 // これを変更した場合は、http://github.com/itdart/klgmonitor/blob/master/non-gh-pages/gas/monitoring.js を更新してください。
 
+// var to = 'asai@thedott.io';
 var to = 'takoratta@gmail.com';
 var sub = 'ホームページ監視情報';
 var body = "サーバの状態が正常ではありません。\n　---- \n 市町村名 :@name \n 対象url :@url \n 現在のサーバー状況 :@status \n ----";
@@ -52,6 +53,7 @@ function writeCel(urls)
     
     ss.getRange(i, 4).setValue(formattedDate);
     ss.getRange(i, 5).setValue(serverInfo.txt);
+//    ss.getRange(i, 6).setValue(pageSpeedScore(urls[i-2]));
     ss.getRange(i, 7).setValue(serverInfo.headers);
   }
 }
@@ -72,11 +74,13 @@ function mailSend(name, url)
 //
 function check_server(url)
 {
+  //Logger.log(url);
   try{
     var res = UrlFetchApp.fetch(url);
     return {"code": res.getResponseCode(), "txt":"◯", "headers": return_last_modified(res.getHeaders().toSource()) }
   } catch(e){
-    return {"code": res.getResponseCode(), "txt":"☓", "headers": return_last_modified(res.getHeaders().toSource()) }
+    // return {"code": res.getResponseCode(), "txt":"☓", "headers": return_last_modified(res.getHeaders().toSource()) }
+    return {"code": "", "txt":"☓", "headers": "" }
   }
 }
 
@@ -100,8 +104,9 @@ function return_last_modified(header) {
   var lastModifiedRegexp = /^.+'Last-Modified':"(.+?)"/;
   var last = lastModifiedRegexp.exec(header);
   if (!last) {
-    // Last Modifiedが無い場合はそのまま
-    return header;
+    // Last Modifiedが無い場合は空白に
+    // return header;
+    return "";
   }
   var date = new Date(last[1]);
   return Utilities.formatDate(date, "JST", "yyyy-MM-dd HH:mm:ss");
