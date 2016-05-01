@@ -1,65 +1,83 @@
-
+﻿
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
-        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-        <style>
-            body {
-                font-family:"hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;
-                text-align:left;
-                -webkit-text-size-adjust: 100%;
-            }
-            table {
-                border-collapse: collapse;
-                border-left: 1px solid #ccc;
-                border-top: 1px solid #ccc;
-                color: #333;
-            }
-            table td {
-                border-right: 1px solid #ccc;
-                border-bottom: 1px solid #ccc;
-                padding: 5px;
-                vertical-align: top;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 200px;
-                font-size: 80%;
-            }
-        </style>
-    </head>
-    <body>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            font-family: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', 'Helvetica Neue', Helvetica, Arial, Verdana, sans-serif;
+        }
 
-<h1>自治体レスキュープロジェクト</h1>
-<p>被災者支援に必要な自治体ホームページからの情報発信をバックアップするためのプロジェクトです。</p>
-<p>当初、大分県と熊本県の自治体HPを簡易調査した時に、いくつかの自治体HPにアクセス出来ない状況であったため、行政機関と連携して、暫定HPの立ちあげを目的に立ち上げたプロジェクトです。</p>
-<p>現在のところダウンしていたHPはすべて復旧しましたが災害は継続していると判断して、プロジェクトは継続することとなりました。</p>
+        .container {
+            padding-top: 50px;
+        }
 
-<h2>プロジェクト概要</h2>
-<p>プロジェクトには、大きく以下2つのパートがあります。</p>
-<ul>
-<li>モニタリング</li>
-<li>常時、自治体HPのモニタリングを行い、災害情報のバックアップを行います。</li>
-</ul>
+        .table tbody tr td {
+            vertical-align: top;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+            font-size: 80%;
+        }
+        .navbar-default {
+            background-color: #21b776;
+        }
+        .navbar-default .navbar-brand {
+            color:#FFF;
+        }
+        .navbar-default .navbar-nav li a {
+            color: #FFF;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
 
-<h3>障害発生時の暫定サイト提供</h3>
-<p>障害発生時には、災害情報モードで暫定サイトを構築して、自治体に提供します。</p>
-<p><a href="http://itdart.jimdo.com/" target=_blank>暫定サイト（災害情報モード）のサンプル</a></p>
+        <a class="navbar-brand" href="#">自治体レスキュープロジェクト</a>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="#about">プロジェクト概要</a></li>
+                <li><a href="#status">モニタリング状況</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>自治体レスキュープロジェクト</h1>
+        <p>被災者支援に必要な自治体ホームページからの情報発信をバックアップするためのプロジェクトです。</p>
+        <p>当初、大分県と熊本県の自治体HPを簡易調査した時に、いくつかの自治体HPにアクセス出来ない状況であったため、行政機関と連携して、暫定HPの立ちあげを目的に立ち上げたプロジェクトです。</p>
+        <p>現在のところダウンしていたHPはすべて復旧しましたが災害は継続していると判断して、プロジェクトは継続することとなりました。</p>
 
-<h2>モニタリング状況</h2>
-<p>モニタリングを行っている情報の一部を一般公開させていただきます。今後、状況に応じた災害関連情報を随時追加する予定です。</p>
+        <h2 id="about">プロジェクト概要</h2>
+        <p>プロジェクトには、大きく以下2つのパートがあります。</p>
+        <ul>
+            <li>モニタリング</li>
+            <li>常時、自治体HPのモニタリングを行い、災害情報のバックアップを行います。</li>
+        </ul>
 
-<hr>
-<h3>公共機関やNPO等支援団体の皆さんへ</h3>
-<p>モニタリング＆暫定サイト提供を希望される方は<a href="https://docs.google.com/forms/d/1hIywPhg-Qa0GxqjN73DVob8lxYUrF1IGAbtEgveJgqQ/viewform" target=_blank>こちらのフォーム</a>からご連絡ください。</p>
-<hr>
+        <h3>障害発生時の暫定サイト提供</h3>
+        <p>障害発生時には、災害情報モードで暫定サイトを構築して、自治体に提供します。</p>
+        <p>
+            <a href="http://itdart.jimdo.com/" target=_blank>暫定サイト（災害情報モード）のサンプル</a>
+        </p>
+
+        <h2 id="status">モニタリング状況</h2>
+        <p>モニタリングを行っている情報の一部を一般公開させていただきます。今後、状況に応じた災害関連情報を随時追加する予定です。</p>
+
+        <h3>公共機関やNPO等支援団体の皆さんへ</h3>
+        <p>
+            モニタリング＆暫定サイト提供を希望される方は<a href="https://docs.google.com/forms/d/1hIywPhg-Qa0GxqjN73DVob8lxYUrF1IGAbtEgveJgqQ/viewform" target=_blank>こちらのフォーム</a>からご連絡ください。
+        </p>
+
 
         <div id="list"></div>
 
-<p>※ホームページ（HP）という用語は本来技術的にはWebサイトもしくはWebページと呼ぶべきであるが、自治体サイトでも良く用いられており、自治体職員などにも理解しやすいということで、このプロジェクトでは自治体HPと呼ぶ。</p>
-<p>このシステムはさくらインターネットよりサーバーを提供いただいております。</p>
-
+        <p>※ホームページ（HP）という用語は本来技術的にはWebサイトもしくはWebページと呼ぶべきであるが、自治体サイトでも良く用いられており、自治体職員などにも理解しやすいということで、このプロジェクトでは自治体HPと呼ぶ。</p>
+        <p>このシステムはさくらインターネットよりサーバーを提供いただいております。</p>
+    </div>
     <script>
         $(function () {
             $.ajax({
@@ -67,40 +85,39 @@
                 url: 'https://spreadsheets.google.com/feeds/cells/1LKh3qNLgi1G4bh486lrxOrphGnbQUPtw3opzdBMJUEE/2/public/values?alt=json',
                 dataType: 'jsonp',
                 cache: false,
-                success: function(data)
-                {
+                success: function (data) {
                     renderForm(data.feed.entry);
                 },
-                error: function() { // 通信が失敗した時
+                error: function () { // 通信が失敗した時
                     console.log('error');
                 }
             });
         });
-        function renderForm(data){
+
+        function renderForm(data) {
             var target = $('#list');
-            var html = '<table><tr>';
+            var html = '<table class="table table-striped"><tr>';
             var row = 1;
 
-            for (i=0;i<data.length;i++){
+            for (i = 0; i < data.length; i++) {
                 if (data[i].gs$cell.row == row) {
-                    //if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 7) {
-                        //2行目以降、レスポンスタイム列としてブランク列を追加
-                    //    html = html + '<td></td><td>'+data[i].gs$cell.$t+'</td>';
-                    //} else {
-                        html = html + '<td>'+data[i].gs$cell.$t+'</td>'
-                    //}
+                    if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 3) {
+                        html = html + '<td><a href="' + data[i].gs$cell.$t + '" target=_blank>' + data[i].gs$cell.$t + '</a></td>';
+                    } else {
+                        html = html + '<td>' + data[i].gs$cell.$t + '</td>'
+                    }
                 } else if (data[i].gs$cell.col == 2) {
                     // 行頭で2列目なので県名列としてブランク列を追加する
-                    html = html + '</tr><tr><td></td><td>'+data[i].gs$cell.$t+'</td>';
-                    row = row +1;
+                    html = html + '</tr><tr><td></td><td>' + data[i].gs$cell.$t + '</td>';
+                    row = row + 1;
                 } else {
-                    html = html + '</tr><tr><td>'+data[i].gs$cell.$t+'</td>';
-                    row = row +1;
+                    html = html + '</tr><tr><td>' + data[i].gs$cell.$t + '</td>';
+                    row = row + 1;
                 }
                 console.log(data[i].gs$cell.row + ' , ' + data[i].gs$cell.col + ' : ' + data[i].gs$cell.$t);
             }
             $("#list")[0].innerHTML = html;
         }
     </script>
-    </body>
- </html>
+</body>
+</html>
