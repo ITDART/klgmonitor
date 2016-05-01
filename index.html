@@ -13,7 +13,7 @@
             table {
                 border-collapse: collapse;
                 border-left: 1px solid #ccc;
-                border-top: 1px solid #ccc; 
+                border-top: 1px solid #ccc;
                 color: #333;
             }
             table td {
@@ -30,17 +30,44 @@
         </style>
     </head>
     <body>
-        
+
+<h1>自治体レスキュープロジェクト</h1>
+<p>被災者支援に必要な自治体ホームページからの情報発信をバックアップするためのプロジェクトです。</p>
+<p>当初、大分県と熊本県の自治体HPを簡易調査した時に、いくつかの自治体HPにアクセス出来ない状況であったため、行政機関と連携して、暫定HPの立ちあげを目的に立ち上げたプロジェクトです。</p>
+<p>現在のところダウンしていたHPはすべて復旧しましたが災害は継続していると判断して、プロジェクトは継続することとなりました。</p>
+
+<h2>プロジェクト概要</h2>
+<p>プロジェクトには、大きく以下2つのパートがあります。</p>
+<ul>
+<li>モニタリング</li>
+<li>常時、自治体HPのモニタリングを行い、災害情報のバックアップを行います。</li>
+</ul>
+
+<h3>障害発生時の暫定サイト提供</h3>
+<p>障害発生時には、災害情報モードで暫定サイトを構築して、自治体に提供します。</p>
+<p><a href="http://itdart.jimdo.com/" target=_blank>暫定サイト（災害情報モード）のサンプル</a></p>
+
+<h2>モニタリング状況</h2>
+<p>モニタリングを行っている情報の一部を一般公開させていただきます。今後、状況に応じた災害関連情報を随時追加する予定です。</p>
+
+<hr>
+<h3>公共機関やNPO等支援団体の皆さんへ</h3>
+<p>モニタリング＆暫定サイト提供を希望される方は<a href="https://docs.google.com/forms/d/1hIywPhg-Qa0GxqjN73DVob8lxYUrF1IGAbtEgveJgqQ/viewform" target=_blank>こちらのフォーム</a>からご連絡ください。</p>
+<hr>
+
         <div id="list"></div>
-        
+
+<p>※ホームページ（HP）という用語は本来技術的にはWebサイトもしくはWebページと呼ぶべきであるが、自治体サイトでも良く用いられており、自治体職員などにも理解しやすいということで、このプロジェクトでは自治体HPと呼ぶ。</p>
+<p>このシステムはさくらインターネットよりサーバーを提供いただいております。</p>
+
     <script>
         $(function () {
             $.ajax({
                 type: 'GET',
-                url: 'https://spreadsheets.google.com/feeds/cells/1G-vKrvXxNPrwUY_rJXl2zTIxVp67vdgeb2TezCBxGdU/2/public/values?alt=json',
+                url: 'https://spreadsheets.google.com/feeds/cells/1LKh3qNLgi1G4bh486lrxOrphGnbQUPtw3opzdBMJUEE/2/public/values?alt=json',
                 dataType: 'jsonp',
                 cache: false,
-                success: function(data) 
+                success: function(data)
                 {
                     renderForm(data.feed.entry);
                 },
@@ -53,7 +80,7 @@
             var target = $('#list');
             var html = '<table><tr>';
             var row = 1;
-            
+
             for (i=0;i<data.length;i++){
                 if (data[i].gs$cell.row == row) {
                     //if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 7) {
