@@ -139,8 +139,12 @@
 
             for (i = 0; i < data.length; i++) {
                 if (data[i].gs$cell.row == row) {
-                    if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 3) {
+                    if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 3) { 
+                    // URLにアンカー処理
                         html = html + '<td><a href="' + data[i].gs$cell.$t + '" target=_blank>' + data[i].gs$cell.$t + '</a></td>';
+                    } else if (data[i].gs$cell.row != 1 && data[i].gs$cell.col == 5  && data[i].gs$cell.$t != '◯') { 
+                    // 表示可否が☓のときに背景を変える
+                        html = html + '<td style="background-color:#E0BDCE">' + data[i].gs$cell.$t + '</td>'
                     } else {
                         html = html + '<td>' + data[i].gs$cell.$t + '</td>'
                     }
@@ -149,6 +153,7 @@
                     html = html + '</tr><tr><td></td><td>' + data[i].gs$cell.$t + '</td>';
                     row = row + 1;
                 } else {
+                    // 1列目にデータが入っている時の処理
                     html = html + '</tr><tr><td>' + data[i].gs$cell.$t + '</td>';
                     row = row + 1;
                 }
