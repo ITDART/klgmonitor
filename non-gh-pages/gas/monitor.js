@@ -52,11 +52,29 @@ function writeCel(urls)
     var serverInfo = check_server(urls[i-2]);
     
     ss.getRange(i, 4).setValue(formattedDate);
+
+    var oldValue = ss.getRange(i, 5).getValue(); // 表示可否の以前の値を保持
     ss.getRange(i, 5).setValue(serverInfo.txt);
-//    ss.getRange(i, 6).setValue(pageSpeedScore(urls[i-2]));
     ss.getRange(i, 7).setValue(serverInfo.headers);
+    
+    if (oldValue != serverInfo.txt) { // 表示可否に変更があった場合（自治体サイトの状態が変更になった場合）- サーバーがダウンしたときなど の処理
+      var cityCol = 2; // 自治体名列
+      var urlCol = 3; // URL列
+      var colNum = 5; // 表示可否の列
+      var rowNum = i;
+      
+      var cityName = ss.getRange(rowNum, cityCol).getValue(); // 自治体名
+      var urlVal = ss.getRange(rowNum, urlCol).getValue(); // URL
+      
+      var msg = cityName + '(' + urlVal + ')' + 'の状態が' + oldValue + 'から' + serverInfo.txt + 'に変わりました。';
+  
+      // Logger.log(msg);
+  
+      sendToSlack(msg, '#op_lgmonitor'); // Slackへの送信
+    }
   }
 }
+
 
 //
 // 指定URLが死んでたらメール送信
