@@ -94,7 +94,6 @@ do
     lastModified=`cat $headerTemp | grep '^Last-Modified:' | sed 's/Last-Modified: //'`
     if [ -n "${lastModified}" ]; then
         lastModified=`date "+%Y/%m/%d %H:%M:%S" -d "${lastModified}"`
-        # echo "lastModifiedは空白じゃないよ"
     fi
 
     rm -f $headerTemp
