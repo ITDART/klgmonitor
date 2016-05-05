@@ -1,4 +1,6 @@
 #!/bin/sh
+csvUri="https://docs.google.com/spreadsheets/d/<SpreadSheetID>/pub?gid=<SheetID>&single=true&output=csv"
+uri="https://script.google.com/macros/s/<ScriptID>/exec?" # GAS doGet()のURI
 uriPara="" # Getのパラメーター
 getUri="" # GetのURI
 status="" # Webサイトの表示可否の判定（◯か☓）。Getの引数じにはエンコード化
@@ -6,6 +8,7 @@ cityUri="" # CSVからパースした自治体サイトURI
 encodedStGood="%E2%97%AF" # エンコード化された◯
 encodedStBad="%E2%98%93" #エンコード化された☓
 curlTimeout=30
+slackWebHook="https://hooks.slack.com/services/<Slack WebHook URI" #Slack WebHook URI
 
 function sendToSlack() { # $1: channel, $2: message
 
